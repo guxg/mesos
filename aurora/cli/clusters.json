@@ -5,7 +5,7 @@
     "scheduler_zk_path": "/aurora",
     "slave_root": "/var/tmp/mesos",
     "slave_run_directory": "latest",
-    "scheduler_uri": "localhost:7081",
+    "scheduler_uri": "localhost:8081",
     "zk": "localhost:2181"
   }
 ]
