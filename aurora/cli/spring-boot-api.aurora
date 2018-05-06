@@ -1,0 +1,21 @@
+
+docker = Process(
+    name = 'run-spring-boot-api',
+    cmdline = 'docker run -p {{thermos.ports[http]}}:8080 demoapi:1.0.1'
+)
+
+task = Task(
+    processes = [docker],
+    resources = Resources(cpu=0.1, ram=512*MB, disk=512*MB)
+)
+
+jobs = [
+    Service(
+        cluster = 'foo',
+        role = 'root',
+        environment = 'devel',
+        name = 'spring-boot-api',
+        task = task,
+        instances = 1
+    )
+]
