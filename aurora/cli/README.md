@@ -75,7 +75,8 @@ aurora job kill foo/root/devel/hello_docker_image/0
 
 
 
-
+task command info and docker entrypoint: 
+ http://mesos.apache.org/documentation/latest/isolators/docker-runtime/
 
 
 

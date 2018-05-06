@@ -1,0 +1,22 @@
+
+docker = Process(
+    name = 'run-demo-api',
+    cmdline = ''
+)
+
+task = Task(
+    processes = [docker],
+    resources = Resources(cpu=0.1, ram=512*MB, disk=512*MB)
+)
+
+jobs = [
+    Service(
+        cluster = 'foo',
+        role = 'root',
+        environment = 'devel',
+        name = 'demo-api',
+        task = task,
+        instances = 1,
+        container = Mesos(image=DockerImage(name='demoapi', tag='1.0.1'))
+    )
+]
